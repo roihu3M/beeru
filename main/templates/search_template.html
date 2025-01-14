@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <div class = "search_bar">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <span>Beeru - a booru clone project</span>
+            <input name="image_tags" />
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

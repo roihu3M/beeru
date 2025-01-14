@@ -1,0 +1,22 @@
+{% extends "search_template.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static '/search/style.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div class="thumbnails">
+    {% for image_path in image %}
+        <div class = "thumbnail"><a href="/view/{{ image_path.fake_id }}"><img src="/media/thumbnails/{{ image_path.image_path }}" ></a></div>
+    {% endfor %}
+    </div>
+    <h4>This is page {{ current_page }} out of {{ pages_count }}</h4>
+    {%if previous_page != 0 %}
+    <a href="/search/{{ tags }}page={{ previous_page }}"><button>Previous page</button></a>
+    {% endif %}
+    {% if next_page <= pages_count %}
+    <a href="/search/{{ tags }}page={{ next_page }}"><button>Next page</button></a>
+    {% endif %}
+    <p><a href="/" ><button>Back to main page</button></a></p>
+{% endblock %}

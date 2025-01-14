@@ -1,0 +1,12 @@
+{% extends "search_template.html" %}
+
+{% block content %}
+    <p><img src = "/media/{{ image.image_path }}"></img></p>
+    <p>Tags: 
+        {% for tag_link in tags %}
+        <span><a href = "/search?t={{ tag_link }}&page=1" >{{ tag_link }}</a></span>
+        {% endfor %}
+    </p>
+    <a href="edittags/">Edit tags</a>
+    <a href="delete/">Delete</a>
+{% endblock %}
